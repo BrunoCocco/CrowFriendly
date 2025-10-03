@@ -182,12 +182,11 @@ Formulario.addEventListener( 'submit', function(datos) {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        const nuevoUsuario = new Usuario (username,password)
-
  if (CheckDatos(username, password)) {
         const nuevoUsuario = new Usuario(username, password);
 
         listaUSuarios.push(nuevoUsuario);
+        
         saveData();
 
         console.log("Usuario guardado:", nuevoUsuario);
@@ -196,7 +195,7 @@ Formulario.addEventListener( 'submit', function(datos) {
 
         window.location.href = "logSussef.html";
     } else {
-        alert("❌ Los datos ingresados no son válidos");
+        console.log("❌ Los datos ingresados no son válidos");
     }
 }
 );

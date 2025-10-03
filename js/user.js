@@ -1,16 +1,21 @@
+
 const recuperarData = () =>{
-        let datosStorage = JSON.parse(localStorage.getItem("listaUSuarios")) || []; 
-         
-        console.log(datosStorage)
-        if (datosStorage.length > 0) {
+    let datosStorage = JSON.parse(localStorage.getItem("listaUSuarios")) || []; 
+    
+    console.log(datosStorage)
+    if (datosStorage.length > 0) {
         
-            const ultimoUsuario = datosStorage[datosStorage.length - 1];
-           // Seleccionar el article
-            const miArticle = document.getElementById("usuarioArticle");
+        const ultimoUsuario = datosStorage[datosStorage.length - 1];
+        // Seleccionar el article
+        const miArticle = document.getElementById("usuarioArticle");
 
             // Mostrar saludo dentro del article
-            miArticle.innerHTML = `<h1>¡Bienvenido, ${ultimoUsuario.user}!</h1>`;
-    }
+            miArticle.innerHTML = `
+            <h1>¡Bienvenido, ${ultimoUsuario.user}!</h1>
+            <h3>${ultimoUsuario.user}, quieres invertir o presentar un proyecto?</h3>
+            
+            `;
+        }
     }
 
 recuperarData();
