@@ -51,12 +51,16 @@ formularioInver.addEventListener("submit", (e) => {
     const ultimo = infoUsuario[infoUsuario.length - 1];
     console.log(ultimo.user);
     
-
+    /* Imprimimos en pantalla el "comprobante" de la ops */
     const screemView = document.getElementById('DescripInversion')
     screemView.innerHTML = `
-    <h3> hola ${ultimo.user} Esta es tu detalle de inversion. </h3>
-    <h4>El Monto total a invertir es : ${nuevaInversion.monto}</h4>
-    <h4>El plazo acordado es de: ${nuevaInversion.plazo}</h4>
-    <h4>La taza de interes elegida es: ${nuevaInversion.interes}</h4>
+    <section>
+        <article>
+            <h3> hola ${ultimo.user} Esta es tu detalle de inversion. </h3>
+            <h4>El Monto total a invertir es : ${nuevaInversion.monto}</h4>
+            <h4>El plazo acordado es de: ${nuevaInversion.plazo}</h4>
+            <h4>La taza de interes elegida es: ${nuevaInversion.interes}</h4>
+        </article>
+    </section>
     `
 });
