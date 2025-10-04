@@ -8,7 +8,7 @@ const recuperarData = () => {
     if (datosStorage.length > 0) {
         const ultimoUsuario = datosStorage[datosStorage.length - 1];
         // Seleccionar el article
-        infoUsuario.push(datosStorage);
+        infoUsuario.push(ultimoUsuario);
 
         const InverArticle = document.getElementById("invertirArticle");
 
@@ -32,17 +32,31 @@ class InverNew {
         this.interes = interes;
     }
 }
-
+/* Escuchamos el evento. */
 const formularioInver = document.getElementById("formInver");
 
 formularioInver.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    /*captamos los datos del form */
     const montoInvertido = Number(document.getElementById("montoInv").value);
     const plazoInvertido = document.getElementById("plazoInv").value;
     const interesObt = document.getElementById("interesInv").value;
-
+    /* Aca armamos el objeto. */
     const nuevaInversion = new InverNew(montoInvertido,plazoInvertido,interesObt)
     nuevaGestion.push(nuevaInversion);
     console.log(nuevaGestion);
+    
+    /*guardamos en una variable "ultimo" el ultimo objoeto del array */
+    const ultimo = infoUsuario[infoUsuario.length - 1];
+    console.log(ultimo.user);
+    
+
+    const screemView = document.getElementById('DescripInversion')
+    screemView.innerHTML = `
+    <h3> hola ${ultimo.user} Esta es tu detalle de inversion. </h3>
+    <h4>El Monto total a invertir es : ${nuevaInversion.monto}</h4>
+    <h4>El plazo acordado es de: ${nuevaInversion.plazo}</h4>
+    <h4>La taza de interes elegida es: ${nuevaInversion.interes}</h4>
+    `
 });
